@@ -1,0 +1,11 @@
+.box {
+    max-width: 500px;
+    background-color: white;
+    margin: auto;
+}
+
+#form-title {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}

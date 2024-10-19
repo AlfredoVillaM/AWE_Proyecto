@@ -1,0 +1,10 @@
+.card {
+	width: 250px;
+    height: max-content;
+}
+
+.card img:hover {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	transform: scale(1.1);
+}
