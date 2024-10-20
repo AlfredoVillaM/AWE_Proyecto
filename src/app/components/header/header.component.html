@@ -1,8 +1,7 @@
-<!-- <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation"> -->
 <header>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#">
+      <a class="navbar-item" [routerLink]="['/catalog']">
         <figure class="image">
           <img src="/assets/logo.svg" title="📚 Biblioteca Virtual 📚">
         </figure>
@@ -17,7 +16,7 @@
       </div>
 
       <div class="navbar-end">
-        <a class="navbar-item">
+        <a class="navbar-item" [routerLink]="['/catalog']" routerLinkActive="menu-item-selected">
           <span class="icon-text">
             <span class="icon">
               <span class="material-icons">home</span>
@@ -25,7 +24,7 @@
             <p>Catálogo</p>
           </span>
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" [routerLink]="['/sign-up']" routerLinkActive="menu-item-selected">
           <span class="icon-text">
             <span class="icon">
               <span class="material-icons">person_add</span>
@@ -33,7 +32,7 @@
             <p>Registrarse</p>
           </span>
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" [routerLink]="['/log-in']" routerLinkActive="menu-item-selected">
           <span class="icon-text">
             <span class="icon">
               <span class="material-icons">login</span>
@@ -41,7 +40,7 @@
             <p>Iniciar sesión</p>
           </span>
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" [routerLink]="['/add-book']" routerLinkActive="menu-item-selected">
           <span class="icon-text">
             <span class="icon">
               <span class="material-icons">add</span>
@@ -49,7 +48,7 @@
             <p>Añadir libro</p>
           </span>
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" [routerLink]="['/loans']" routerLinkActive="menu-item-selected">
           <span class="icon-text">
             <span class="icon">
               <span class="material-icons">history</span>
@@ -57,7 +56,7 @@
             <p>Mis préstamos</p>
           </span>
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" [routerLink]="['/catalog']">
           <span class="icon-text">
             <span class="icon">
               <span class="material-icons">logout</span>

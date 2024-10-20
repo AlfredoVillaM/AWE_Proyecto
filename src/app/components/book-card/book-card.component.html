@@ -1,20 +1,17 @@
 <div class="card">
     <div class="card-image">
       <figure class="image is-2by3">
-        <img
-          src="/assets/angeles.jpg"
-          alt="Placeholder image"
-        />
+        <img [src]="'/assets/' + book.cover" alt=""/>
       </figure>
     </div>
     <div class="card-content">
       <div class="content">
-        <p class="title is-5">Donde habitan los ángeles</p>
-        <p class="subtitle is-6">Claudia Celis</p>
+        <p class="title is-5">{{book.title}}</p>
+        <p class="subtitle is-6">{{book.author}}</p>
       </div>
     </div>
     <footer class="card-footer">
-        <a href="#" class="card-footer-item">
+        <a (click)="onEditCard()" class="card-footer-item" [routerLink]="['/add-book']">
             <span class="icon-text">
                 <span class="icon">
                   <span class="material-icons">edit</span>
@@ -22,7 +19,7 @@
                 <p>Editar</p>
               </span>
         </a>
-        <a href="#" class="card-footer-item">
+        <a (click)="onDeleteCard()" class="card-footer-item">
             <span class="icon-text">
                 <span class="icon">
                   <span class="material-icons">delete</span>

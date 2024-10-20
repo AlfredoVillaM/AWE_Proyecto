@@ -6,18 +6,22 @@ header {
 	box-shadow: 0px 0.5px 5px 0px rgba(0,0,0,0.2);
 }
 
-.navbar-brand img{
+.navbar-brand img {
 	transition: all 0.5s ease;
 }
 
-.navbar-brand:hover img{
+.navbar-brand:hover img {
 	transform: scale(1.1);
 }
 
-nav a:hover span{
+.menu-item-selected {
+    color: maroon;
+}
+
+nav a:hover span {
 	color: maroon;
 }
 
-/* nav a:hover p{
-        text-decoration: underline;
-} */
+.navbar-end {
+	width: max-content;
+}

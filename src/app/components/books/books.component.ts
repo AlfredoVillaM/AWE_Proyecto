@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { BookCardComponent } from "../book-card/book-card.component";
 import { BooksService } from '../../services/books.service';
 import { Book } from '../../interfaces/book.interface';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-books',
   standalone: true,
-  imports: [BookCardComponent],
+  imports: [BookCardComponent, NgFor],
   templateUrl: './books.component.html',
   styleUrl: './books.component.css'
 })
@@ -15,8 +16,8 @@ export class BooksComponent {
 
   selectedBook: Book | null = null;
 
-  public deleteElement(title: string): void {
-    this.booksService.deleteElement(title);
+  public deleteElement(isbn: string): void {
+    this.booksService.deleteElement(isbn);
   }
 
   public editElement(book: Book): void {
