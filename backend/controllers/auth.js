@@ -9,14 +9,14 @@ const login = async (req = request, res = response) => {
     const user = await UserRepository.getOne({ username: username });
     if (!user) {
         return res.status(401).json({
-            msg: "Usuario y/o contraseña inválidos"
+            msg: "Usuario y/o contraseña inválidos."
         });
     }
 
     const validPasssword = await bcrypt.compare(password, user.password);
     if (!validPasssword) {
         return res.status(401).json({
-            msg: "Usuario y/o contraseña inválidos"
+            msg: "Usuario y/o contraseña inválidos."
         });
     }
 
@@ -24,8 +24,9 @@ const login = async (req = request, res = response) => {
         const token = await generateJWT(username);
         res.status(200).json({
             msg: "Login OK",
-            token: token,
-            username: username
+            username: user.username,
+            role: user.role,
+            token: token
         })
     } catch (error) {
         console.log(error);

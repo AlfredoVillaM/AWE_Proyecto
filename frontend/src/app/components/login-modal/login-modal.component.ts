@@ -3,11 +3,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../interfaces/user.interface';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login-modal',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf],
   templateUrl: './login-modal.component.html',
   styleUrl: './login-modal.component.css'
 })
@@ -15,6 +16,7 @@ export class LoginModalComponent {
   private authService = inject(AuthService);
 
   isModalActive: boolean = false;
+  msg = "";
 
   public onFormSubmit(form: NgForm): void {
     if (form.valid) {
@@ -24,7 +26,12 @@ export class LoginModalComponent {
       }
 
       this.authService.login(user);
-      this.closeModal(form);
+
+      this.msg = this.authService.msg;
+
+      if (this.msg === "Login OK") {
+        this.closeModal(form);
+      }
     }
   }
 

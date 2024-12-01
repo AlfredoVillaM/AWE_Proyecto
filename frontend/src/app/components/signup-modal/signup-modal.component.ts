@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../interfaces/user.interface';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-signup-modal',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf],
   templateUrl: './signup-modal.component.html',
   styleUrl: './signup-modal.component.css'
 })
@@ -14,6 +15,7 @@ export class SignupModalComponent {
   private authService = inject(AuthService);
 
   isModalActive: boolean = false;
+  msg = "";
 
   public onFormSubmit(form: NgForm): void {
     if (form.valid) {
@@ -22,8 +24,13 @@ export class SignupModalComponent {
         password: form.value.password
       }
 
-      this.authService.login(user);
-      this.closeModal(form);
+      this.authService.register(user);
+
+      this.msg = this.authService.msg;
+
+      if (this.msg === "Usuario creado") {
+        this.closeModal(form);
+      }
     }
   }
 

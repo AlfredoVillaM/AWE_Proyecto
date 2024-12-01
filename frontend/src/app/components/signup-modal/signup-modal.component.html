@@ -32,6 +32,9 @@
                     <button class="button" type="submit" [disabled]="!form.valid">Registrarse</button>
                 </div>
             </div>
+            <article class="message is-danger" *ngIf="msg !== ''">
+                <div class="message-body">{{msg}}</div>
+            </article>
         </form>
       </div>
     </div>

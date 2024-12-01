@@ -1,5 +1,5 @@
 <tr>
-    <td>{{loan.username}}</td>
+    <td *ngIf="role === 'admin'">{{loan.username}}</td>
     <td>{{loan.isbn}}</td>
     <td>{{loan.title}}</td>
     <td>{{loan.startDate}}</td>
