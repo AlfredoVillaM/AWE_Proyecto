@@ -1,0 +1,24 @@
+.box {
+    max-width: 500px;
+    margin: auto;
+}
+
+.modal-background {
+    background-color: maroon;
+}
+
+#form-title {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+    color: maroon;
+}
+
+.button {
+    background-color: maroon;
+    color: white;
+}
+
+span:hover {
+	color: maroon;
+}

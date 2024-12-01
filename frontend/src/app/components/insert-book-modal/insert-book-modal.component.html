@@ -1,0 +1,119 @@
+<div class="modal" [class.is-active]="isModalActive">
+  <div class="modal-background"></div>
+
+  <div class="modal-content">
+    <div class="box">
+      <button class="delete" aria-label="close" (click)="closeModal(form)"></button>
+      <p>&nbsp;</p>
+      <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+            <div class="field">
+                <label class="label">ISBN:</label>
+                <div class="control">
+                    <input class="input" type="text" name="isbn" required ngModel>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Título:</label>
+                <div class="control">
+                    <input class="input" type="text" name="title" required ngModel>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Autor:</label>
+                <div class="control">
+                    <input class="input" type="text" name="author" required ngModel>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Año de publicación:</label>
+                <div class="control">
+                    <input class="input" type="number" name="year" required ngModel>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Género:</label>
+                <div class="control">
+                    <div class="select">
+                        <select name="genre" required ngModel>
+                            <option value="" disabled>Seleccione una opción</option>
+                            <option value="Arquitectura">Arquitectura</option>
+                            <option value="Astronomía">Astronomía</option>
+                            <option value="Autobiografía">Autobiografía</option>
+                            <option value="Biografía">Biografía</option>
+                            <option value="Biología">Biología</option>
+                            <option value="Ciencia Ficción">Ciencia Ficción</option>
+                            <option value="Ciencias Sociales">Ciencias Sociales</option>
+                            <option value="Cine">Cine</option>
+                            <option value="Cuentos">Cuentos</option>
+                            <option value="Derecho">Derecho</option>
+                            <option value="Desarrollo Humano">Desarrollo Humano</option>
+                            <option value="Diccionarios">Diccionarios</option>
+                            <option value="Diseño Gráfico">Diseño Gráfico</option>
+                            <option value="Economía">Economía</option>
+                            <option value="Ensayo">Ensayo</option>
+                            <option value="Ensayo Literario">Ensayo Literario</option>
+                            <option value="Filosofía">Filosofía</option>
+                            <option value="Física">Física</option>
+                            <option value="Fotografía">Fotografía</option>
+                            <option value="Gastronomía">Gastronomía</option>
+                            <option value="Geografía">Geografía</option>
+                            <option value="Historia">Historia</option>
+                            <option value="Libro ilustrado">Libro ilustrado</option>
+                            <option value="Literatura Iberoamericana">Literatura Iberoamericana</option>
+                            <option value="Literatura Mexicana">Literatura Mexicana</option>
+                            <option value="Literatura Universal">Literatura Universal</option>
+                            <option value="Manga">Manga</option>
+                            <option value="Medicina">Medicina</option>
+                            <option value="Música">Música</option>
+                            <option value="Novela">Novela</option>
+                            <option value="Novela gráfica">Novela gráfica</option>
+                            <option value="Poesía">Poesía</option>
+                            <option value="Política">Política</option>
+                            <option value="Química">Química</option>
+                            <option value="Religión y teología">Religión y teología</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Salud y ejercicio">Salud y ejercicio</option>
+                            <option value="Sociología y antropología">Sociología y antropología</option>
+                            <option value="Teatro">Teatro</option>
+                            <option value="Terror y suspenso">Terror y suspenso</option>
+                            <option value="Viajes y turismo">Viajes y turismo</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Editorial:</label>
+                <div class="control">
+                    <input class="input" type="text" name="publisher" required ngModel>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Sinópsis:</label>
+                <div class="control">
+                  <textarea class="textarea" name="synopsis" required ngModel></textarea>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Portada:</label>
+                <div class="control">
+                    <input class="input" type="text" name="cover" placeholder="URL de la imagen" required ngModel>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+            <div class="field is-grouped is-grouped-centered">
+                <div class="control">
+                    <button class="button" type="submit" [disabled]="!form.valid || form.controls['genre'].value === 'Seleccione una opción'" [routerLink]="['/catalog']">Insertar</button>
+                </div>
+            </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<span class="icon-text" (click)="openModal()">
+  <span class="icon">
+    <span class="material-icons">add</span>
+  </span>
+  <p>Añadir libro</p>
+</span>

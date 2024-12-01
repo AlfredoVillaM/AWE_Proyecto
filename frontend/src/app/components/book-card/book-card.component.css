@@ -1,0 +1,19 @@
+.card {
+	width: 250px;
+    height: max-content;
+	margin: 10px;
+}
+
+.card img:hover {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	transform: scale(1.1);
+}
+
+.card-image, .card-content:hover {
+	cursor: pointer;
+}
+
+.card-footer-item {
+	color: maroon;
+}

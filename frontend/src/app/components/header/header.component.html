@@ -1,0 +1,55 @@
+<header>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" [routerLink]="['/catalog']">
+        <figure class="image">
+          <img src="/assets/logo.svg" title="📚 Biblioteca Virtual 📚">
+        </figure>
+      </a>
+    </div>
+  
+    <div class="navbar-menu is-active">
+      <!-- <div class="navbar-start">
+        <div class="navbar-item">
+          <app-search-bar></app-search-bar>
+        </div>
+      </div> -->
+
+      <div class="navbar-end">
+        <a class="navbar-item" [routerLink]="['/catalog']" routerLinkActive="menu-item-selected">
+          <span class="icon-text">
+            <span class="icon">
+              <span class="material-icons">home</span>
+            </span>
+            <p>Catálogo</p>
+          </span>
+        </a>
+        <a class="navbar-item">
+          <app-signup-modal></app-signup-modal>
+        </a>
+        <a class="navbar-item">
+          <app-login-modal></app-login-modal>
+        </a>
+        <a class="navbar-item">
+          <app-insert-book-modal (createElement)="createElement($event)"></app-insert-book-modal>
+        </a>
+        <a class="navbar-item" [routerLink]="['/loans']" routerLinkActive="menu-item-selected">
+          <span class="icon-text">
+            <span class="icon">
+              <span class="material-icons">history</span>
+            </span>
+            <p>Mis préstamos</p>
+          </span>
+        </a>
+        <a class="navbar-item" [routerLink]="['/catalog']">
+          <span class="icon-text">
+            <span class="icon">
+              <span class="material-icons">logout</span>
+            </span>
+            <p>Cerrar sesión</p>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

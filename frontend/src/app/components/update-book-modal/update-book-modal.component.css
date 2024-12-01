@@ -1,0 +1,13 @@
+.box {
+    max-width: 500px;
+    margin: auto;
+}
+
+.delete {
+    float: right;
+}
+
+.button {
+    background-color: maroon;
+    color: white;
+}

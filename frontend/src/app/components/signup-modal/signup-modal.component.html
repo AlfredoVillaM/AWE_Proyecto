@@ -1,0 +1,47 @@
+<div class="modal" [class.is-active]="isModalActive">
+    <div class="modal-background"></div>
+  
+    <div class="modal-content">
+      <div class="box">
+  
+        <p>&nbsp;</p>
+  
+        <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+            <figure class="image">
+                <img src="/assets/logo.svg" title="📚 Biblioteca Virtual 📚">
+            </figure>
+            <p>&nbsp;</p>
+            <div id="form-title">
+                <p class="title is-4">Crear una cuenta</p>
+            </div>
+            <div class="field">
+                <label class="label">Nombre de usuario:</label>
+                <div class="control">
+                    <input class="input" type="text" required ngModel>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Contraseña:</label>
+                <div class="control">
+                    <input class="input" type="text" required ngModel>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+            <div class="field is-grouped is-grouped-centered">
+                <div class="control">
+                    <button class="button" type="submit" [disabled]="!form.valid">Registrarse</button>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  
+    <button class="modal-close is-large" aria-label="close" (click)="closeModal(form)"></button>
+</div>
+
+<span class="icon-text" (click)="openModal()">
+    <span class="icon">
+      <span class="material-icons">person_add</span>
+    </span>
+    <p>Registrarse</p>
+</span>

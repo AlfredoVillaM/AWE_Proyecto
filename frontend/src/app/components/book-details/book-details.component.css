@@ -1,0 +1,10 @@
+.box {
+    margin: 0 20px 0 20px;
+    padding: 50px;
+    display: inline-flexbox;
+}
+
+.image {
+    width: 500px;
+    margin-right: 30px;
+}

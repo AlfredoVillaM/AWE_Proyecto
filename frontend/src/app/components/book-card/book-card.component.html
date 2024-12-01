@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-image">
+      <figure class="image is-2by3" [routerLink]="['/catalog', book.isbn]">
+        <img [src]="book.cover" alt=""/>
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="content">
+        <p class="title is-5">{{book.title}}</p>
+        <p class="subtitle is-6">{{book.author}}</p>
+      </div>
+    </div>
+    <footer class="card-footer">
+        <a class="card-footer-item" [routerLink]="['/catalog', book.isbn]">
+          Ver detalles
+        </a>
+    </footer>
+  </div>

@@ -1,0 +1,64 @@
+<div class="box">
+    <div class="block">
+        <a [routerLink]="['/catalog']">⭠ Atrás</a>
+    </div>
+
+    <div class="block is-flex">
+        <figure class="image is-2by3">
+            <img [src]="book?.cover" alt=""/>
+        </figure>
+        <div class="content">
+            <p class="title is-3">{{book?.title}}</p>
+            <p class="subtitle is-5">{{book?.author}}</p>
+            <p><strong>Año de publicación:</strong> {{book?.year}}</p>
+            <p><strong>Género:</strong> {{book?.genre}}</p>
+            <p><strong>Editorial:</strong> {{book?.publisher}}</p>
+            <p><strong>Sinópsis:</strong><br> {{book?.synopsis}}</p>
+            <button class="button">
+                <app-update-book-modal [book]="book" (editElement)="editElement($event)"></app-update-book-modal>
+            </button>
+            <button class="button" (click)="onDeleteButton()" [routerLink]="['/catalog']">
+                <span class="icon-text">
+                    <span class="icon">
+                    <span class="material-icons">delete</span>
+                    </span>
+                    <p>Borrar</p>
+                </span>
+            </button>
+            <button class="button">Solicitar préstamo</button>
+        </div>
+    </div>
+
+    <div class="block">
+        <h5 class="subtitle is-5"><strong>Comentarios:</strong></h5>
+
+        <article class="media">
+            <div class="media-content">
+            <div class="content">
+                <p>
+                <strong>Barbara Middleton</strong>
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros
+                lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris
+                sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                </p>
+            </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            <div class="media-content">
+            <div class="field">
+                <p class="control">
+                <textarea class="textarea" placeholder="Add a comment..."></textarea>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                <button class="button">Post comment</button>
+                </p>
+            </div>
+            </div>
+        </article>
+    </div>
+</div>
