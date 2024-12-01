@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-signup-modal',
@@ -9,11 +11,18 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './signup-modal.component.css'
 })
 export class SignupModalComponent {
+  private authService = inject(AuthService);
+
   isModalActive: boolean = false;
 
   public onFormSubmit(form: NgForm): void {
     if (form.valid) {
-      
+      const user: User = {
+        username: form.value.username,
+        password: form.value.password
+      }
+
+      this.authService.login(user);
       this.closeModal(form);
     }
   }

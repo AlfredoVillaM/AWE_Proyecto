@@ -1,6 +1,7 @@
 <table class="table is-hoverable">
     <thead>
       <tr>
+        <th>Usuario</th>
         <th>ISBN</th>
         <th>Título</th>
         <th>Fecha de inicio</th>
@@ -8,11 +9,6 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <app-loan-row *ngFor="let loan of loans" [loan]="loan"></app-loan-row>
     </tbody>
   </table>

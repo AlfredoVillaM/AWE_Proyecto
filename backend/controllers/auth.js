@@ -6,12 +6,6 @@ const { generateJWT } = require('../helpers/jwt');
 const login = async (req = request, res = response) => {
     const { username, password } = req.body;
 
-    if (!username || !password) {
-        return res.status(400).json({
-            msg: "Datos inválidos"
-        });
-    }
-
     const user = await UserRepository.getOne({ username: username });
     if (!user) {
         return res.status(401).json({
@@ -27,12 +21,11 @@ const login = async (req = request, res = response) => {
     }
 
     try {
-        const { password: _, ...simpleUser } = user.toObject();
         const token = await generateJWT(username);
         res.status(200).json({
             msg: "Login OK",
             token: token,
-            user: simpleUser
+            username: username
         })
     } catch (error) {
         console.log(error);
@@ -60,12 +53,6 @@ const register = async (req = request, res = response) => {
             password: hashedPassword,
             role: "user" 
         })
-
-        // const simpleUser = {
-        //     username: newUser.username,
-        //     role: newUser.role,
-        //     id: newUser._id
-        // }
 
         const { password: _, ...simpleUser } = newUser.toObject();
 

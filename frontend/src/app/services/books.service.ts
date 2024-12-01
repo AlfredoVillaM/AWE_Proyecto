@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Book } from '../interfaces/book.interface';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +41,12 @@ export class BooksService {
       },
     });
   }
+
+  // {
+  //   headers: {
+  //       "Authorization": "Poner en peticiones que requieran validacion de JWT"
+  //   }
+  // }
 
   public createNewBook(book: Book) {
     this.http.post<Book>(this.apiUrl, book).subscribe({
