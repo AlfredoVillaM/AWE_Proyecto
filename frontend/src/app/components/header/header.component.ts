@@ -18,6 +18,6 @@ export class HeaderComponent {
   private booksService = inject(BooksService);
 
   public createElement(book: Book): void {
-    this.booksService.createElement(book);
+    this.booksService.createNewBook(book);
   }
 }

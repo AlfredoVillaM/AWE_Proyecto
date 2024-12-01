@@ -13,20 +13,24 @@ import { UpdateBookModalComponent } from '../update-book-modal/update-book-modal
 })
 export class BookDetailsComponent {
   private booksService = inject(BooksService);
-  public book: Book | null = null;
 
   constructor(private route: ActivatedRoute,) {
     const isbn = this.route.snapshot.paramMap.get('isbn');
     if (isbn) {
-      this.book = this.booksService.getBookByISBN(isbn);
+      this.booksService.getBookByIsbn(isbn);
+
     }
   }
 
   public onDeleteButton(): void {
-    this.booksService.deleteElement(this.book!.isbn);
+    this.booksService.deleteBook(this.book!.isbn);
   }
 
   public editElement(book: Book): void {
-    this.booksService.editElement(book, book.isbn);
+    this.booksService.updateBook(book.isbn, book);
+  }
+
+  public get book(): Book | null {
+    return this.booksService.book;
   }
 }

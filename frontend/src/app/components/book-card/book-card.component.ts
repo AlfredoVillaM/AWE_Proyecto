@@ -23,8 +23,4 @@ export class BookCardComponent {
     synopsis: "",
     cover: ""
   }
-
-  // public get books(): Book[] {
-  //   return this.booksService.books;
-  // }
 }
