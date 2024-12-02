@@ -14,18 +14,13 @@
             <p><strong>Género:</strong> {{book.genre}}</p>
             <p><strong>Editorial:</strong> {{book.publisher}}</p>
             <p><strong>Sinópsis:</strong><br> {{book.synopsis}}</p>
-            <button class="button">
+            <button *ngIf="role === 'admin'"  class="button">
                 <app-update-book-modal [book]="book" (editElement)="editElement($event)"></app-update-book-modal>
             </button>
-            <button class="button" (click)="onDeleteButton()" [routerLink]="['/catalog']">
-                <span class="icon-text">
-                    <span class="icon">
-                    <span class="material-icons">delete</span>
-                    </span>
-                    <p>Borrar</p>
-                </span>
+            <button *ngIf="role === 'admin'" class="button">
+                <app-delete-book-modal [isbn]="book.isbn"></app-delete-book-modal>
             </button>
-            <button class="button">
+            <button *ngIf="role === 'user'" class="button">
                 <app-loan-modal [book]="book"></app-loan-modal>
             </button>
         </div>
