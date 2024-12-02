@@ -1,0 +1,16 @@
+<article class="media">
+    <div class="media-content">
+        <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+            <div class="field">
+                <p class="control">
+                <textarea class="textarea" name="content" placeholder="Añadir un comentario..." required ngModel></textarea>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                <button class="button" type="submit" [disabled]="!form.valid">Enviar</button>
+                </p>
+            </div>
+        </form>
+    </div>
+</article>

@@ -13,7 +13,7 @@ const getAllLoans = async (req = request, res = response) => {
     }
 }
 
-const getBookByUser = async (req = request, res = response) => {
+const getLoansByUser = async (req = request, res = response) => {
     const { username } = req.params;
 
     try {
@@ -46,6 +46,6 @@ const createNewLoan = async (req = request, res = response) => {
 
 module.exports = {
     getAllLoans,
-    getBookByUser,
+    getLoansByUser,
     createNewLoan
 }

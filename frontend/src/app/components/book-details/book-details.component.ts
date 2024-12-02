@@ -7,11 +7,12 @@ import { LoanModalComponent } from '../loan-modal/loan-modal.component';
 import { AuthService } from '../../services/auth.service';
 import { NgIf } from '@angular/common';
 import { DeleteBookModalComponent } from '../delete-book-modal/delete-book-modal.component';
+import { CommentFormComponent } from '../comment-form/comment-form.component';
 
 @Component({
   selector: 'app-book-details',
   standalone: true,
-  imports: [NgIf, RouterLink, UpdateBookModalComponent, DeleteBookModalComponent, LoanModalComponent],
+  imports: [NgIf, RouterLink, UpdateBookModalComponent, DeleteBookModalComponent, LoanModalComponent, CommentFormComponent],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })

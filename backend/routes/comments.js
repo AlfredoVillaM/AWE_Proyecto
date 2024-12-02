@@ -1,13 +1,11 @@
 const { Router } = require('express');
-const { getAllLoans, getLoansByUser, createNewLoan } = require('../controllers/loans');
+const { getCommentsByIsbn, createNewComment } = require('../controllers/comments');
 const { validateJWT } = require('../middlewares/verifyJWT');
 const { verifyAdminRole } = require('../middlewares/verifyAdminRole');
 const router = Router();
 
-router.get("/", getAllLoans);
+router.get("/:isbn", getCommentsByIsbn);
 
-router.get("/:username", getLoansByUser);
-
-router.post("/", createNewLoan);
+router.post("/", createNewComment);
 
 module.exports = router;

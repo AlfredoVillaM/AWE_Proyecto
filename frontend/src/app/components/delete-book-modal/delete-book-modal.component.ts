@@ -12,7 +12,7 @@ export class DeleteBookModalComponent {
   private booksService = inject(BooksService);
   
   @Input()
-  public isbn: string = ""; 
+  public isbn: string = "";
 
   isModalActive: boolean = false;
 
