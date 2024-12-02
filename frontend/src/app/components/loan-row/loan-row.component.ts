@@ -2,6 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { Loan } from '../../interfaces/loan.interface';
 import { AuthService } from '../../services/auth.service';
 import { NgIf } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-loan-row',
@@ -20,6 +21,14 @@ export class LoanRowComponent {
     title: "",
     startDate: new Date(),
     dueDate: new Date()
+  }
+
+  constructor(private datePipe: DatePipe) {
+
+  }
+
+  public formatDate(date: Date | string): string | null {
+    return this.datePipe.transform(date, 'dd-MM-yyyy');
   }
 
   public get role(): string {

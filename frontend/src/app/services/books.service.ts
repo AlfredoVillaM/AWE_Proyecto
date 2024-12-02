@@ -10,13 +10,23 @@ export class BooksService {
   private apiUrl = "http://localhost:8080/api/books";
 
   private _books: Book[] = [];
-  private _book: Book | null = null;
+  // private _book: Book | null = null;
+  private _book: Book = {
+    isbn: "",
+    title: "",
+    author: "",
+    year: 0,
+    genre: "",
+    publisher: "",
+    synopsis: "",
+    cover: ""
+  }
 
   public get books(): Book[] {
     return this._books;
   }
   
-  public get book(): Book | null {
+  public get book(): Book {
     return this._book;
   }
 

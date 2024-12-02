@@ -1,7 +1,18 @@
-<tr>
+<!-- <tr>
     <td *ngIf="role === 'admin'">{{loan.username}}</td>
     <td>{{loan.isbn}}</td>
     <td>{{loan.title}}</td>
     <td>{{loan.startDate}}</td>
     <td>{{loan.dueDate}}</td>
-</tr>
+</tr> -->
+
+<ng-container>
+    <td *ngIf="role === 'admin'">{{ loan.username }}</td>
+    <td>{{loan.isbn}}</td>
+    <td>{{loan.title}}</td>
+    <td>{{loan.startDate}}</td>
+    <td>{{loan.dueDate}}</td>
+    <!-- <td>{{formatDate(loan.startDate)}}</td>
+    <td>{{formatDate(loan.dueDate)}}</td> -->
+</ng-container>
+  

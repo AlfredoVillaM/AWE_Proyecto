@@ -1,19 +1,19 @@
 <div class="box">
     <div class="block">
-        <a [routerLink]="['/catalog']">⭠ Atrás</a>
+        <a [routerLink]="['/catalog']">&lt; Volver</a>
     </div>
 
     <div class="block is-flex">
         <figure class="image is-2by3">
-            <img [src]="book?.cover" alt=""/>
+            <img [src]="book.cover" alt=""/>
         </figure>
         <div class="content">
-            <p class="title is-3">{{book?.title}}</p>
-            <p class="subtitle is-5">{{book?.author}}</p>
-            <p><strong>Año de publicación:</strong> {{book?.year}}</p>
-            <p><strong>Género:</strong> {{book?.genre}}</p>
-            <p><strong>Editorial:</strong> {{book?.publisher}}</p>
-            <p><strong>Sinópsis:</strong><br> {{book?.synopsis}}</p>
+            <p class="title is-3">{{book.title}}</p>
+            <p class="subtitle is-5">{{book.author}}</p>
+            <p><strong>Año de publicación:</strong> {{book.year}}</p>
+            <p><strong>Género:</strong> {{book.genre}}</p>
+            <p><strong>Editorial:</strong> {{book.publisher}}</p>
+            <p><strong>Sinópsis:</strong><br> {{book.synopsis}}</p>
             <button class="button">
                 <app-update-book-modal [book]="book" (editElement)="editElement($event)"></app-update-book-modal>
             </button>
@@ -25,7 +25,9 @@
                     <p>Borrar</p>
                 </span>
             </button>
-            <button class="button">Solicitar préstamo</button>
+            <button class="button">
+                <app-loan-modal [book]="book"></app-loan-modal>
+            </button>
         </div>
     </div>
 

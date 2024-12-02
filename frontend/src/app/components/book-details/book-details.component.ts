@@ -3,11 +3,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Book } from '../../interfaces/book.interface';
 import { BooksService } from '../../services/books.service';
 import { UpdateBookModalComponent } from '../update-book-modal/update-book-modal.component';
+import { LoanModalComponent } from '../loan-modal/loan-modal.component';
 
 @Component({
   selector: 'app-book-details',
   standalone: true,
-  imports: [RouterLink, UpdateBookModalComponent],
+  imports: [RouterLink, UpdateBookModalComponent, LoanModalComponent],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })
@@ -18,7 +19,6 @@ export class BookDetailsComponent {
     const isbn = this.route.snapshot.paramMap.get('isbn');
     if (isbn) {
       this.booksService.getBookByIsbn(isbn);
-
     }
   }
 
@@ -30,7 +30,7 @@ export class BookDetailsComponent {
     this.booksService.updateBook(book.isbn, book);
   }
 
-  public get book(): Book | null {
+  public get book(): Book {
     return this.booksService.book;
   }
 }

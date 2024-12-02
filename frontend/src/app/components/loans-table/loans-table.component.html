@@ -9,6 +9,8 @@
       </tr>
     </thead>
     <tbody>
-      <app-loan-row *ngFor="let loan of loans" [loan]="loan"></app-loan-row>
+      <tr *ngFor="let loan of loans">
+        <app-loan-row [loan]="loan"></app-loan-row>
+      </tr>
     </tbody>
   </table>
