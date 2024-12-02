@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Comment } from '../../interfaces/comment.interface';
 
 @Component({
   selector: 'app-comment-data',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './comment-data.component.css'
 })
 export class CommentDataComponent {
-
+  @Input()
+  public comment: Comment = {
+    isbn: "",
+    username: "",
+    content: ""
+  }
 }

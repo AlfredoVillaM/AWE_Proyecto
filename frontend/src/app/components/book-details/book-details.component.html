@@ -29,20 +29,8 @@
     <div class="block">
         <h5 class="subtitle is-5"><strong>Comentarios:</strong></h5>
 
-        <article class="media">
-            <div class="media-content">
-            <div class="content">
-                <p>
-                <strong>Barbara Middleton</strong>
-                <br />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros
-                lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris
-                sit amet dolor blandit rutrum. Nunc in tempus turpis.
-                </p>
-            </div>
-            </div>
-        </article>
+        <app-comments [isbn]="book.isbn"></app-comments>
 
-        <app-comment-form [isbn]="book.isbn"></app-comment-form>
+        <app-comment-form *ngIf="role === 'user'" [isbn]="book.isbn"></app-comment-form>
     </div>
 </div>
