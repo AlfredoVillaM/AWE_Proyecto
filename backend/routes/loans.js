@@ -4,10 +4,10 @@ const { validateJWT } = require('../middlewares/verifyJWT');
 const { verifyAdminRole } = require('../middlewares/verifyAdminRole');
 const router = Router();
 
-router.get("/", getAllLoans);
+router.get("/", [validateJWT, verifyAdminRole], getAllLoans);
 
-router.get("/:username", getLoansByUser);
+router.get("/:username", [validateJWT], getLoansByUser);
 
-router.post("/", createNewLoan);
+router.post("/", [validateJWT], createNewLoan);
 
 module.exports = router;

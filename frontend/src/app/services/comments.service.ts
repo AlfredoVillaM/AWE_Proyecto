@@ -27,15 +27,23 @@ export class CommentsService {
   }
 
   public postComment(comment: Comment) {
-    this.http.post<Comment>(this.apiUrl, comment).subscribe({
-      next: (response) => {
-        const currentComments = this.commentsSubject.value;
-        this.commentsSubject.next([response, ...currentComments]);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    const token = localStorage.getItem("auth-token");
+
+    if (token) {
+      this.http.post<Comment>(this.apiUrl, comment, {
+        headers: {
+          "Authorization": token
+        }
+      }).subscribe({
+        next: (response) => {
+          const currentComments = this.commentsSubject.value;
+          this.commentsSubject.next([response, ...currentComments]);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 
   // public fetchCommentsByIsbn(isbn: string) {

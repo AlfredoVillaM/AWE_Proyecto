@@ -1,14 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../interfaces/user.interface';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login-modal',
   standalone: true,
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule, NgIf, NgClass],
   templateUrl: './login-modal.component.html',
   styleUrl: './login-modal.component.css'
 })
@@ -41,6 +40,7 @@ export class LoginModalComponent {
 
   closeModal(form: NgForm): void {
     form.resetForm();
+    this.show_error = false;
     this.isModalActive = false;
   }
 }

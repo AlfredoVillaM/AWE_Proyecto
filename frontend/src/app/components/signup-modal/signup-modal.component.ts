@@ -40,6 +40,7 @@ export class SignupModalComponent {
 
   closeModal(form: NgForm): void {
     form.resetForm();
+    this.show_error = false;
     this.isModalActive = false;
   }
 }

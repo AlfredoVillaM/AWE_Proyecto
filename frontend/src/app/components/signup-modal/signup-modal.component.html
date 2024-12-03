@@ -32,7 +32,7 @@
                     <button class="button" type="submit" [disabled]="!form.valid">Registrarse</button>
                 </div>
             </div>
-            <article class="message is-danger" *ngIf="show_error">
+            <article *ngIf="show_error" class="message is-danger">
                 <div class="message-body">Usuario ya existente.</div>
             </article>
         </form>

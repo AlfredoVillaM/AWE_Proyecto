@@ -26,15 +26,15 @@
                     <input class="input" type="password" name="password" required ngModel>
                 </div>
             </div>
-            <article class="message is-danger" *ngIf="show_error === true">
-                <div class="message-body">Usuario y/o contraseña incorrectos.</div>
-            </article>
             <p>&nbsp;</p>
             <div class="field is-grouped is-grouped-centered">
                 <div class="control">
                     <button class="button" type="submit" [disabled]="!form.valid">Ingresar</button>
                 </div>
             </div>
+            <article *ngIf="show_error" class="message is-danger">
+                <div class="message-body">Usuario y/o contraseña incorrectos.</div>
+            </article>
         </form>
       </div>
     </div>

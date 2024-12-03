@@ -16,35 +16,59 @@ export class LoansService {
   }
 
   public fetchAllLoans() {
-    this.http.get<Loan[]>(this.apiUrl).subscribe({
-      next: (response) => {
-        this._loans = response;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    })
+    const token = localStorage.getItem("auth-token");
+
+    if (token) {
+      this.http.get<Loan[]>(this.apiUrl, {
+        headers: {
+          "Authorization": token
+        }
+      }).subscribe({
+        next: (response) => {
+          this._loans = response;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 
   public fetchLoansByUser(username: string) {
-    this.http.get<Loan[]>(`${this.apiUrl}/${username}`).subscribe({
-      next: (response) => {
-        this._loans = response;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    })
+    const token = localStorage.getItem("auth-token");
+
+    if (token) {
+      this.http.get<Loan[]>(`${this.apiUrl}/${username}`, {
+        headers: {
+          "Authorization": token
+        }
+      }).subscribe({
+        next: (response) => {
+          this._loans = response;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 
   public createNewLoan(loan: Loan) {
-    this.http.post<Loan>(this.apiUrl, loan).subscribe({
-      next: (response) => {
-        
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    const token = localStorage.getItem("auth-token");
+
+    if (token) {
+      this.http.post<Loan>(this.apiUrl, loan, {
+        headers: {
+          "Authorization": token
+        }
+      }).subscribe({
+        next: (response) => {
+          
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 }

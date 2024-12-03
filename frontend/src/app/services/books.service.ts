@@ -66,39 +66,60 @@ export class BooksService {
   // }
 
   public createNewBook(book: Book) {
-    this.http.post<Book>(this.apiUrl, book).subscribe({
-      next: (response) => {
-        this._books.unshift(book);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    const token = localStorage.getItem("auth-token");
+
+    if (token) {
+      this.http.post<Book>(this.apiUrl, book, {
+        headers: {
+          "Authorization": token
+        }
+      }).subscribe({
+        next: (response) => {
+          this._books.unshift(book);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 
   public updateBook(isbn: string, book: Book) {
-    this.http.put(`${this.apiUrl}/${isbn}`, book).subscribe({
-      next: (response) => {
-        // const index = this._books.findIndex(b => b.isbn === isbn);
-        // if (index !== -1) {
-        //   this._books[index] = book;
-        // }
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    const token = localStorage.getItem("auth-token");
+
+    if (token) {
+      this.http.put(`${this.apiUrl}/${isbn}`, book, {
+        headers: {
+          "Authorization": token
+        }
+      }).subscribe({
+        next: (response) => {
+  
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 
   public deleteBook(isbn: string) {
-    this.http.delete(`${this.apiUrl}/${isbn}`).subscribe({
-      next: (response) => {
-        this._books = this.books.filter((book) => book.isbn !== isbn);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    const token = localStorage.getItem("auth-token");
+
+    if (token) {
+      this.http.delete(`${this.apiUrl}/${isbn}`, {
+        headers: {
+          "Authorization": token
+        }
+      }).subscribe({
+        next: (response) => {
+          this._books = this.books.filter((book) => book.isbn !== isbn);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
 
   // public getBookByISBN(isbn: string): Book | null {

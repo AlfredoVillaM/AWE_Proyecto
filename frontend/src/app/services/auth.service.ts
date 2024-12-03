@@ -37,6 +37,10 @@ export class AuthService {
         this._userActive = response.username;
         this._role = response.role;
         this._token = response.token;
+        localStorage.setItem("auth-token", response.token);
+        // localStorage.setItem("auth-token", response.token);
+        // const token = localStorage.getItem("auth-token");
+        // localStorage.removeItem("auth-token");
       },
       error: (error) => {
         console.log(error);
@@ -60,5 +64,6 @@ export class AuthService {
     this._userActive = "";
     this._role = "";
     this._token = null;
+    localStorage.removeItem("auth-token");
   }
 }

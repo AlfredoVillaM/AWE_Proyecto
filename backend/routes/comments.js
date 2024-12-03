@@ -6,6 +6,6 @@ const router = Router();
 
 router.get("/:isbn", getCommentsByIsbn);
 
-router.post("/", createNewComment);
+router.post("/", [validateJWT], createNewComment);
 
 module.exports = router;
