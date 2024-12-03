@@ -1,0 +1,30 @@
+<div class="modal" [class.is-active]="isModalActive">
+    <div class="modal-background"></div>
+  
+    <div class="modal-content">
+      <div class="box">
+        <div class="block">
+            <div class="content">
+                <p><strong><br>¿Seguro que deseas eliminar este elemento?<br>Esta acción no se puede deshacer.</strong></p>
+            </div>
+        </div>
+        <div class="block">
+            <div class="field is-grouped is-grouped-centered">
+                <p class="control">
+                  <button class="button confirm" (click)="onConfirmButton()" [routerLink]="['/catalog']">Confirmar</button>
+                </p>
+                <p class="control" (click)="closeModal()">
+                  <button class="button">Cancelar</button>
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
+<span class="icon-text" (click)="openModal()">
+    <span class="icon">
+    <span class="material-icons">delete</span>
+    </span>
+    <p>Borrar</p>
+</span>

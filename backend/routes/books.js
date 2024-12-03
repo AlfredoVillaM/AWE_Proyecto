@@ -8,10 +8,10 @@ router.get("/", getAllBooks);
 
 router.get("/:isbn", getBookByIsbn);
 
-router.post("/", createNewBook);
+router.post("/", [validateJWT, verifyAdminRole], createNewBook);
 
-router.put("/:id", updateBook);
+router.put("/:id", [validateJWT, verifyAdminRole], updateBook);
 
-router.delete("/:isbn", deleteBook);
+router.delete("/:isbn", [validateJWT, verifyAdminRole], deleteBook);
 
 module.exports = router;

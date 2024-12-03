@@ -1,0 +1,35 @@
+<div class="modal" [class.is-active]="isModalActive">
+    <div class="modal-background"></div>
+  
+    <div class="modal-content">
+      <div class="box">
+        <button class="delete" aria-label="close" (click)="closeModal(form)"></button>
+        <p>&nbsp;</p>
+        <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+              <div class="field">
+                  <label class="label">Fecha de inicio:</label>
+                  <div class="control">
+                      <input class="input" type="date" name="startDate" [min]="minStartDate" [max]="maxStartDate" (change)="onStartDateChange($event)" required ngModel>
+                  </div>
+              </div>
+              <div class="field">
+                  <label class="label">Fecha de devolución:</label>
+                  <div class="control">
+                      <input class="input" type="date" name="dueDate" [min]="minDueDate" [max]="maxDueDate" required ngModel>
+                  </div>
+              </div>
+              <p>&nbsp;</p>
+              <div class="field is-grouped is-grouped-centered">
+                  <div class="control">
+                      <button class="button" type="submit" [disabled]="!form.valid">Solicitar</button>
+                  </div>
+              </div>
+        </form>
+      </div>
+    </div>
+</div>
+  
+<span class="icon-text" (click)="openModal()">
+    <p>Solicitar préstamo</p>
+</span>
+  

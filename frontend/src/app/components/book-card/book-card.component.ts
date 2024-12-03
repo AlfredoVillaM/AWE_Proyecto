@@ -11,7 +11,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './book-card.component.css'
 })
 export class BookCardComponent {
-
   @Input()
   public book: Book = {
     isbn: "",
@@ -23,8 +22,4 @@ export class BookCardComponent {
     synopsis: "",
     cover: ""
   }
-
-  // public get books(): Book[] {
-  //   return this.booksService.books;
-  // }
 }

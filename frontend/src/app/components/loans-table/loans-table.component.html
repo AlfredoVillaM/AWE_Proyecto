@@ -1,18 +1,18 @@
-<table class="table is-hoverable">
-    <thead>
-      <tr>
-        <th>ISBN</th>
-        <th>Título</th>
-        <th>Fecha de inicio</th>
-        <th>Fecha de devolución</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="box">
+  <div class="fixed-grid" [ngClass]="role === 'admin' ? 'has-5-cols' : 'has-4-cols'">
+    <div class="grid">
+      <div *ngIf="role === 'admin'" class="cell"><strong>Usuario</strong></div>
+      <div class="cell"><strong>ISBN</strong></div>
+      <div class="cell"><strong>Título</strong></div>
+      <div class="cell"><strong>Fecha de inicio</strong></div>
+      <div class="cell"><strong>Fecha de devolución</strong></div>
+    </div>
+    <div *ngFor="let loan of loans" class="grid">
+      <div *ngIf="role === 'admin'" class="cell">{{loan.username}}</div>
+      <div class="cell">{{loan.isbn}}</div>
+      <div class="cell">{{loan.title}}</div>
+      <div class="cell">{{loan.startDate}}</div>
+      <div class="cell">{{loan.dueDate}}</div>
+    </div>
+  </div>
+</div>
