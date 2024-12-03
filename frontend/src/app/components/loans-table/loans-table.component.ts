@@ -1,14 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { LoansService } from '../../services/loans.service';
 import { Loan } from '../../interfaces/loan.interface';
-import { LoanRowComponent } from '../loan-row/loan-row.component';
 import { AuthService } from '../../services/auth.service';
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-loans-table',
   standalone: true,
-  imports: [NgFor, LoanRowComponent],
+  imports: [NgFor, NgIf, NgClass],
   templateUrl: './loans-table.component.html',
   styleUrl: './loans-table.component.css'
 })
