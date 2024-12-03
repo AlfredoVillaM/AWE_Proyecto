@@ -29,7 +29,7 @@ export class CommentsService {
   public postComment(comment: Comment) {
     this.http.post<Comment>(this.apiUrl, comment).subscribe({
       next: (response) => {
-        
+        this._comments.unshift(comment);
       },
       error: (error) => {
         console.log(error);

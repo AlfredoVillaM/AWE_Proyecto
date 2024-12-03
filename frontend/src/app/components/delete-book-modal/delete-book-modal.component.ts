@@ -1,10 +1,11 @@
 import { Component, inject, Input } from '@angular/core';
 import { BooksService } from '../../services/books.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-delete-book-modal',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './delete-book-modal.component.html',
   styleUrl: './delete-book-modal.component.css'
 })

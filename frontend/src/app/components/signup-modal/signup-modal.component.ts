@@ -15,7 +15,7 @@ export class SignupModalComponent {
   private authService = inject(AuthService);
 
   isModalActive: boolean = false;
-  msg = "";
+  show_error: boolean = false;
 
   public onFormSubmit(form: NgForm): void {
     if (form.valid) {
@@ -26,10 +26,10 @@ export class SignupModalComponent {
 
       this.authService.register(user);
 
-      this.msg = this.authService.msg;
-
-      if (this.msg === "Usuario creado") {
+      if (this.authService.msg === "Usuario creado") {
         this.closeModal(form);
+      } else {
+        this.show_error = true;
       }
     }
   }

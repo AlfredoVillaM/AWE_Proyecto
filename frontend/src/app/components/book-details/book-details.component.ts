@@ -21,20 +21,33 @@ export class BookDetailsComponent {
   private booksService = inject(BooksService);
   private authService = inject(AuthService);
 
+  public book: Book = {
+    isbn: "",
+    title: "",
+    author: "",
+    year: 0,
+    genre: "",
+    publisher: "",
+    synopsis: "",
+    cover: ""
+  }
+
   constructor(private route: ActivatedRoute,) {
     const isbn = this.route.snapshot.paramMap.get('isbn');
     if (isbn) {
       this.booksService.getBookByIsbn(isbn);
+      this.book = this.booksService.book;
     }
   }
 
-  public editElement(book: Book): void {
+  public editElement(book: Book) {
     this.booksService.updateBook(book.isbn, book);
+    this.book = book;
   }
 
-  public get book(): Book {
-    return this.booksService.book;
-  }
+  // public get book(): Book {
+  //   return this.booksService.book;
+  // }
 
   public get token(): string | null {
     return this.authService.token;

@@ -17,11 +17,15 @@ export class CommentsComponent {
   @Input()
   public isbn: string = "";
 
+  public comments: Comment[] = [];
+
   constructor() {
     this.commentsService.fetchCommentsByIsbn(this.isbn);
+    this.comments = this.commentsService.comments;
+    console.log(this.comments);
   }
 
-  public get comments(): Comment[] {
-    return this.commentsService.comments;
-  }
+  // public get comments(): Comment[] {
+  //   return this.commentsService.comments;
+  // }
 }

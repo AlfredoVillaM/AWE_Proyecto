@@ -10,7 +10,6 @@ export class BooksService {
   private apiUrl = "http://localhost:8080/api/books";
 
   private _books: Book[] = [];
-  // private _book: Book | null = null;
   private _book: Book = {
     isbn: "",
     title: "",
@@ -34,6 +33,7 @@ export class BooksService {
     this.http.get<Book[]>(this.apiUrl).subscribe({
       next: (response) => {
         this._books = response;
+        this._books.reverse();
       },
       error: (error) => {
         console.log(error);
@@ -41,15 +41,22 @@ export class BooksService {
     })
   }
 
+  // public getBookByIsbn(isbn: string) {
+  //   this.http.get<Book>(`${this.apiUrl}/${isbn}`).subscribe({
+  //     next: (response) => {
+  //        this._book = response;
+  //     },
+  //     error: (error) => {
+  //       console.log(error);
+  //     },
+  //   });
+  // }
+
   public getBookByIsbn(isbn: string) {
-    this.http.get<Book>(`${this.apiUrl}/${isbn}`).subscribe({
-      next: (response) => {
-         this._book = response;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
+    const book = this._books.find((book) => book.isbn === isbn);
+    if (book) {
+      this._book = book;
+    }
   }
 
   // {
@@ -61,7 +68,7 @@ export class BooksService {
   public createNewBook(book: Book) {
     this.http.post<Book>(this.apiUrl, book).subscribe({
       next: (response) => {
-        // this._books.push(book);
+        this._books.unshift(book);
       },
       error: (error) => {
         console.log(error);
@@ -72,7 +79,10 @@ export class BooksService {
   public updateBook(isbn: string, book: Book) {
     this.http.put(`${this.apiUrl}/${isbn}`, book).subscribe({
       next: (response) => {
-        
+        // const index = this._books.findIndex(b => b.isbn === isbn);
+        // if (index !== -1) {
+        //   this._books[index] = book;
+        // }
       },
       error: (error) => {
         console.log(error);
@@ -83,7 +93,7 @@ export class BooksService {
   public deleteBook(isbn: string) {
     this.http.delete(`${this.apiUrl}/${isbn}`).subscribe({
       next: (response) => {
-        // this._books = this.books.filter((book) => book.isbn !== isbn);
+        this._books = this.books.filter((book) => book.isbn !== isbn);
       },
       error: (error) => {
         console.log(error);

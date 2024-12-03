@@ -50,7 +50,7 @@ export class UpdateBookModalComponent {
   }
 
   closeModal(form: NgForm): void {
-    form.resetForm();
+    // form.resetForm();
     this.isModalActive = false;
   }
 }

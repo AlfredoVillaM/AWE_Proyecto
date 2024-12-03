@@ -16,7 +16,7 @@ export class LoginModalComponent {
   private authService = inject(AuthService);
 
   isModalActive: boolean = false;
-  msg = "";
+  show_error: boolean = false;
 
   public onFormSubmit(form: NgForm): void {
     if (form.valid) {
@@ -27,10 +27,10 @@ export class LoginModalComponent {
 
       this.authService.login(user);
 
-      this.msg = this.authService.msg;
-
-      if (this.msg === "Login OK") {
+      if (this.authService.msg === "Login OK") {
         this.closeModal(form);
+      } else {
+        this.show_error = true;
       }
     }
   }
