@@ -19,13 +19,21 @@ export class CommentsComponent {
 
   public comments: Comment[] = [];
 
-  constructor() {
-    this.commentsService.fetchCommentsByIsbn(this.isbn);
-    this.comments = this.commentsService.comments;
-    console.log(this.comments);
+  ngOnInit(): void {
+    if (this.isbn) {
+      this.commentsService.fetchCommentsByIsbn(this.isbn);
+      this.commentsService.comments$.subscribe((comments) => {
+        this.comments = comments;
+      });
+    }
   }
 
-  // public get comments(): Comment[] {
-  //   return this.commentsService.comments;
+  // constructor() {
+  //   this.commentsService.fetchCommentsByIsbn(this.isbn);
+  //   this.comments = this.commentsService.comments;
+  //   console.log("ISBN:");
+  //   console.log(this.isbn);
+  //   console.log("Comentarios:");
+  //   console.log(this.comments);
   // }
 }
