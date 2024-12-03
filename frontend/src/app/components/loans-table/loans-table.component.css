@@ -1,3 +1,4 @@
 .box {
     margin: 0 50px 0 50px;
+    min-height: 500px;
 }
