@@ -9,32 +9,32 @@
               <div class="field">
                   <label class="label">ISBN:</label>
                   <div class="control">
-                      <input class="input" type="text" name="isbn" required ngModel [ngModel]="book?.isbn">
+                      <input class="input" type="text" name="isbn" readonly required ngModel [ngModel]="book.isbn">
                   </div>
               </div>
               <div class="field">
                   <label class="label">Título:</label>
                   <div class="control">
-                      <input class="input" type="text" name="title" required ngModel [ngModel]="book?.title">
+                      <input class="input" type="text" name="title" required ngModel [ngModel]="book.title">
                   </div>
               </div>
               <div class="field">
                   <label class="label">Autor:</label>
                   <div class="control">
-                      <input class="input" type="text" name="author" required ngModel [ngModel]="book?.author">
+                      <input class="input" type="text" name="author" required ngModel [ngModel]="book.author">
                   </div>
               </div>
               <div class="field">
                   <label class="label">Año de publicación:</label>
                   <div class="control">
-                      <input class="input" type="number" name="year" required ngModel [ngModel]="book?.year">
+                      <input class="input" type="number" name="year" required ngModel [ngModel]="book.year">
                   </div>
               </div>
               <div class="field">
                   <label class="label">Género:</label>
                   <div class="control">
                       <div class="select">
-                          <select name="genre" required [ngModel]="book?.genre">
+                          <select name="genre" required [ngModel]="book.genre">
                               <option value="Arquitectura">Arquitectura</option>
                               <option value="Astronomía">Astronomía</option>
                               <option value="Autobiografía">Autobiografía</option>
@@ -84,19 +84,19 @@
               <div class="field">
                   <label class="label">Editorial:</label>
                   <div class="control">
-                      <input class="input" type="text" name="publisher" required ngModel [ngModel]="book?.publisher">
+                      <input class="input" type="text" name="publisher" required ngModel [ngModel]="book.publisher">
                   </div>
               </div>
               <div class="field">
                 <label class="label">Sinópsis:</label>
                 <div class="control">
-                  <textarea class="textarea" name="synopsis" required ngModel [ngModel]="book?.synopsis"></textarea>
+                  <textarea class="textarea" name="synopsis" required ngModel [ngModel]="book.synopsis"></textarea>
                 </div>
               </div>
               <div class="field">
                   <label class="label">Portada:</label>
                   <div class="control">
-                      <input class="input" type="text" name="cover" placeholder="URL de la imagen" required ngModel [ngModel]="book?.cover">
+                      <input class="input" type="text" name="cover" placeholder="URL de la imagen" required ngModel [ngModel]="book.cover">
                   </div>
               </div>
               <p>&nbsp;</p>

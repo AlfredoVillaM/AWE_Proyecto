@@ -24,24 +24,24 @@
             <p>Catálogo</p>
           </span>
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" *ngIf="!token">
           <app-signup-modal></app-signup-modal>
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" *ngIf="!token">
           <app-login-modal></app-login-modal>
         </a>
-        <a class="navbar-item">
+        <a class="navbar-item" *ngIf="role === 'admin'">
           <app-insert-book-modal (createElement)="createElement($event)"></app-insert-book-modal>
         </a>
-        <a class="navbar-item" [routerLink]="['/loans']" routerLinkActive="menu-item-selected">
+        <a class="navbar-item" *ngIf="token" [routerLink]="['/loans']" routerLinkActive="menu-item-selected">
           <span class="icon-text">
             <span class="icon">
               <span class="material-icons">history</span>
             </span>
-            <p>Mis préstamos</p>
+            <p>{{ role === 'admin' ? 'Préstamos' : 'Mis préstamos' }}</p>
           </span>
         </a>
-        <a class="navbar-item" [routerLink]="['/catalog']">
+        <a class="navbar-item" *ngIf="token" (click)="onLogOut()" [routerLink]="['/catalog']">
           <span class="icon-text">
             <span class="icon">
               <span class="material-icons">logout</span>

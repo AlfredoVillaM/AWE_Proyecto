@@ -17,13 +17,13 @@
             <div class="field">
                 <label class="label">Nombre de usuario:</label>
                 <div class="control">
-                    <input class="input" type="text" required ngModel>
+                    <input class="input" type="text" name="username" required ngModel>
                 </div>
             </div>
             <div class="field">
                 <label class="label">Contraseña:</label>
                 <div class="control">
-                    <input class="input" type="text" required ngModel>
+                    <input class="input" type="text" name="password" required ngModel>
                 </div>
             </div>
             <p>&nbsp;</p>
@@ -32,6 +32,9 @@
                     <button class="button" type="submit" [disabled]="!form.valid">Registrarse</button>
                 </div>
             </div>
+            <article *ngIf="show_error" class="message is-danger">
+                <div class="message-body">Usuario ya existente.</div>
+            </article>
         </form>
       </div>
     </div>

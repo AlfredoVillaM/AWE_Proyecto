@@ -15,3 +15,11 @@ span:hover {
     background-color: maroon;
     color: white;
 }
+
+label {
+    text-align: left;
+}
+
+.select, select {
+    width: 100%;
+}

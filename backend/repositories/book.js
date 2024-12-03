@@ -1,9 +1,6 @@
 const Book = require("../models/book");
 
 class BookRepository {
-    // static async getAll() {
-    //     return await Book.find();
-    // }
     static async getAll(query) {
         return await Book.find(query);
     }

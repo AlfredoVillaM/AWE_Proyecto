@@ -16,7 +16,16 @@ export class UpdateBookModalComponent {
   public editElement : EventEmitter<Book> = new EventEmitter();
 
   @Input()
-  public book: Book | null = null;
+  public book: Book = {
+    isbn: "",
+    title: "",
+    author: "",
+    year: 0,
+    genre: "",
+    publisher: "",
+    synopsis: "",
+    cover: ""
+  }
 
   public onFormSubmit(form: NgForm): void {
     if (form.valid) {
@@ -41,7 +50,7 @@ export class UpdateBookModalComponent {
   }
 
   closeModal(form: NgForm): void {
-    form.resetForm();
+    // form.resetForm();
     this.isModalActive = false;
   }
 }
